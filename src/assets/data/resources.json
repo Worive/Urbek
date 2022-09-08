@@ -1,0 +1,932 @@
+{
+    "categories": [
+        {
+            "id": "appearance",
+            "name": "Appearance",
+            "subCategories": [
+                {
+                    "id": "behaviour",
+                    "name": "Behaviour",
+                    "fields": [
+                        {
+                            "fancyName": "Avoid 1x1",
+                            "name": "avoid1x1",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/appearance#avoid-1-x-1-avoid1x1"
+                        }
+                    ]
+                },
+                {
+                    "id": "modelsSubCategory",
+                    "name": "Models",
+                    "category": "appearance",
+                    "fields": [
+                        {
+                            "fancyName": "Abandoned Model",
+                            "name": "abandonedModel",
+                            "type": "string"
+                        },
+                        {
+                            "fancyName": "Building Models",
+                            "name": "models",
+                            "type": "models"
+                        },
+                        {
+                            "fancyName": "Water Models",
+                            "name": "waterModels",
+                            "type": "list",
+                            "item": {
+                                "type": "string",
+                                "placeHolder": "Water Building Code Name"
+                            }
+                        },
+                        {
+                            "fancyName": "Road Models",
+                            "name": "roadModel",
+                            "type": "list",
+                            "item": {
+                                "type": "string",
+                                "placeHolder": "Road Code Name"
+                            }
+                        },
+                        {
+                            "fancyName": "No Cars",
+                            "name": "noCars",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/appearance#no-cars-nocars"
+                        }
+                    ]
+                },
+                {
+                    "id": "orientation",
+                    "name": "Orientation",
+                    "category": "appearance",
+                    "fields": [
+                        {
+                            "fancyName": "Facade",
+                            "name": "facade",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/appearance#facade"
+                        },
+                        {
+                            "fancyName": "Faces Sun",
+                            "name": "facesSun",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/appearance#faces-sun-facessun"
+                        }
+                    ]
+                },
+                {
+                    "id": "ranges",
+                    "name": "Ranges",
+                    "category": "appearance",
+                    "fields": [
+                        {
+                            "fancyName": "Draw Range",
+                            "name": "drawRange",
+                            "type": "number"
+                        },
+                        {
+                            "fancyName": "Draw Range 2",
+                            "name": "drawRange2",
+                            "type": "number"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "availability",
+            "name": "Availability & Unblock",
+            "subCategories": [
+                {
+                    "id": "availability",
+                    "name": "Availability",
+                    "fields": [
+                        {
+                            "fancyName": "Not Available",
+                            "name": "notAvailable",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/availability-and-unblock"
+                        }
+                    ]
+                },
+                {
+                    "id": "unblock",
+                    "name": "Unblock",
+                    "fields": []
+                }
+            ]
+        },
+        {
+            "id": "information",
+            "name": "Information",
+            "subCategories": [
+                {
+                    "id": "identification",
+                    "name": "Identification",
+                    "fields": [
+                        {
+                            "fancyName": "Building Name",
+                            "name": "name",
+                            "type": "string",
+                            "onInput": "updateBuildingName()"
+                        },
+                        {
+                            "fancyName": "Code Name",
+                            "name": "codeName",
+                            "type": "string",
+                            "required": true,
+                            "onInput": "updateBuildingName()"
+                        },
+                        {
+                            "fancyName": "Category",
+                            "name": "category",
+                            "type": "select",
+                            "required": true,
+                            "selectOptions": [
+                                {
+                                    "name": "Culture",
+                                    "value": "cultura"
+                                },
+                                {
+                                    "name": "Faith",
+                                    "value": "fe"
+                                },
+                                {
+                                    "name": "Sports",
+                                    "value": "deporte"
+                                },
+                                {
+                                    "name": "Night Life",
+                                    "value": "vidaNocturna"
+                                },
+                                {
+                                    "name": "Parks",
+                                    "value": "parques"
+                                },
+                                {
+                                    "name": "Industry",
+                                    "value": "industrias"
+                                },
+                                {
+                                    "name": "Landmark",
+                                    "value": "ciudad"
+                                },
+                                {
+                                    "name": "Farms",
+                                    "value": "campo"
+                                },
+                                {
+                                    "name": "Houses",
+                                    "value": "casas"
+                                },
+                                {
+                                    "name": "Roads",
+                                    "value": "camino"
+                                },
+                                {
+                                    "name": "Tourism",
+                                    "value": "turismo"
+                                },
+                                {
+                                    "name": "Vehicles",
+                                    "value": "autos"
+                                }
+                            ]
+                        },
+                        {
+                            "fancyName": "Show Buildable",
+                            "name": "showBuildable",
+                            "type": "string"
+                        },
+                        {
+                            "fancyName": "Description",
+                            "name": "description",
+                            "type": "string",
+                            "display": {
+                                "col": 12
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "placement",
+            "name": "Placement",
+            "subCategories": [
+                {
+                    "id": "behaviour",
+                    "name": "Behaviour",
+                    "fields": [
+                        {
+                            "fancyName": "Root",
+                            "name": "root",
+                            "type": "string"
+                        },
+                        {
+                            "fancyName": "Buildable",
+                            "name": "buildable",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement"
+                        },
+                        {
+                            "fancyName": "Replaces",
+                            "name": "replaces",
+                            "type": "list",
+                            "item": {
+                                "type": "string",
+                                "placeHolder": "Building Code Name"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "area",
+                    "name": "Area",
+                    "fields": [
+                        {
+                            "fancyName": "Buildings Needed",
+                            "name": "buildingsNeeded",
+                            "type": "list",
+                            "item": {
+                                "type": "buildingNeeded",
+                                "placeHolder": "Building Needed"
+                            },
+                            "display": {
+                                "col": 8
+                            }
+                        },
+                        {
+                            "fancyName": "Distance To Road",
+                            "name": "distanceToRoad",
+                            "type": "number",
+                            "display": {
+                                "col": 4
+                            }
+                        },
+                        {
+                            "fancyName": "Resource Needed",
+                            "name": "resourceNeeded",
+                            "type": "list",
+                            "item": {
+                                "type": "resource",
+                                "placeHolder": "Resource Needed"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "biomes",
+                    "name": "Biomes",
+                    "fields": [
+                        {
+                            "fancyName": "Biome Able",
+                            "name": "biomeAble",
+                            "type": "list",
+                            "item": {
+                                "type": "biome",
+                                "placeHolder": "Biome"
+                            }
+                        },
+                        {
+                            "fancyName": "Biome Unable",
+                            "name": "biomeUnable",
+                            "type": "list",
+                            "item": {
+                                "type": "biome",
+                                "placeHolder": "Biome"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "placementType",
+                    "name": "Placement Type",
+                    "fields": [
+                        {
+                            "fancyName": "Line",
+                            "name": "line",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement#placement-type"
+                        },
+                        {
+                            "fancyName": "Zone",
+                            "name": "zone",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement#placement-type"
+                        }
+                    ]
+                },
+                {
+                    "id": "waterRelated",
+                    "name": "Water Related",
+                    "fields": [
+                        {
+                            "fancyName": "Can Water Artificial",
+                            "name": "canWaterArtificial",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement#water-related"
+                        },
+                        {
+                            "fancyName": "Can Water River",
+                            "name": "canWaterRiver",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement#water-related"
+                        },
+                        {
+                            "fancyName": "Can Water Sea",
+                            "name": "canWaterSea",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement#water-related"
+                        },
+                        {
+                            "fancyName": "Coastal",
+                            "name": "coastal",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement#water-related"
+                        },
+                        {
+                            "fancyName": "River Side",
+                            "name": "riverSide",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/placement#water-related"
+                        },
+                        {
+                            "fancyName": "Coastal Depth",
+                            "name": "coastalDepth",
+                            "type": "select",
+                            "selectOptions": [
+                                {
+                                    "name": "0",
+                                    "value": 0
+                                },
+                                {
+                                    "name": "2",
+                                    "value": 2
+                                }
+                            ],
+                            "display": {
+                                "col": 6
+                            }
+                        },
+                        {
+                            "fancyName": "Maritime",
+                            "name": "maritime",
+                            "type": "number",
+                            "display": {
+                                "col": 6
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "paths",
+            "name": "Paths",
+            "subCategories": [
+                {
+                    "id": "connections",
+                    "name": "Connections",
+                    "fields": [
+                        {
+                            "fancyName": "Connect With",
+                            "name": "connectWith",
+                            "type": "list",
+                            "item": {
+                                "type": "string",
+                                "placeHolder": "Building Code Name"
+                            }
+                        },
+                        {
+                            "fancyName": "Connexion Range",
+                            "name": "connexionRange",
+                            "type": "number"
+                        },
+                        {
+                            "fancyName": "Merges Roads",
+                            "name": "mergesRoads",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/paths#merges-roads-mergesroads"
+                        }
+                    ]
+                },
+                {
+                    "id": "characteristics",
+                    "name": "Characteristics",
+                    "fields": [
+                        {
+                            "fancyName": "Is Bridge",
+                            "name": "isBridge",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/paths#characteristics"
+                        },
+                        {
+                            "fancyName": "Is Road",
+                            "name": "isRoad",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/paths#characteristics"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "policy",
+            "name": "Policy",
+            "subCategories": [
+                {
+                    "id": "policy",
+                    "name": "Policy",
+                    "fields": [
+                        {
+                            "fancyName": "Policy Level",
+                            "name": "policyLevel",
+                            "type": "number"
+                        },
+                        {
+                            "fancyName": "Policy Effect",
+                            "name": "policyEffect",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "resources",
+            "name": "Resources",
+            "subCategories": [
+                {
+                    "id": "calculation",
+                    "name": "Calculation",
+                    "fields": [
+                        {
+                            "fancyName": "By Building",
+                            "name": "byBuilding",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/resources#calculation"
+                        },
+                        {
+                            "fancyName": "Count Itself",
+                            "name": "countItself",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/resources#calculation"
+                        }
+                    ]
+                },
+                {
+                    "id": "production",
+                    "name": "Production & Consume",
+                    "fields": [
+                        {
+                            "fancyName": "Cost",
+                            "name": "cost",
+                            "type": "resource"
+                        },
+                        {
+                            "fancyName": "Local Variables",
+                            "name": "localVariables",
+                            "type": "list",
+                            "item": {
+                                "type": "localVariable",
+                                "placeHolder": "Local Variable"
+                            }
+                        },
+                        {
+                            "fancyName": "Resource Extraction",
+                            "name": "resourceExtraction",
+                            "type": "list",
+                            "item": {
+                                "type": "resourceExtraction",
+                                "placeHolder": "Resource Extraction"
+                            }
+                        },
+                        {
+                            "fancyName": "Produces",
+                            "name": "produces",
+                            "type": "resource"
+                        },
+                        {
+                            "fancyName": "Storage",
+                            "name": "storage",
+                            "type": "resource"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sound",
+            "name": "Sound",
+            "subCategories": [
+                {
+                    "id": "sound",
+                    "name": "Sound",
+                    "fields": [
+                        {
+                            "fancyName": "Sound Effect List",
+                            "name": "SE_list",
+                            "type": "list",
+                            "item": {
+                                "type": "string",
+                                "placeHolder": "Sound Name"
+                            }
+                        },
+                        {
+                            "fancyName": "Sound Effect Probability",
+                            "name": "SE_probability",
+                            "type": "number"
+                        },
+                        {
+                            "fancyName": "Sound Effect Delay",
+                            "name": "SE_delay",
+                            "type": "number"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "upgrades",
+            "name": "Upgrades & Abandon",
+            "subCategories": [
+                {
+                    "id": "abandon",
+                    "name": "Abandon",
+                    "fields": [
+                        {
+                            "fancyName": "Fast Abandon",
+                            "name": "fastAbandon",
+                            "type": "boolean",
+                            "wikiPage": "https://worive.gitbook.io/urbek-modding/in-depth-knowledge/structure-attributes/upgrades-and-abandon#abandon"
+                        }
+                    ]
+                },
+                {
+                    "id": "upgrade",
+                    "name": "Upgrade",
+                    "fields": [
+                        {
+                            "fancyName": "Updates",
+                            "name": "updates",
+                            "type": "list",
+                            "item": {
+                                "type": "string",
+                                "placeHolder": "Building Code Name"
+                            }
+                        },
+                        {
+                            "fancyName": "Updates From",
+                            "name": "updatesFrom",
+                            "type": "list",
+                            "item": {
+                                "type": "updateFrom",
+                                "placeHolder": "Update From"
+                            }
+                        },
+                        {
+                            "fancyName": "Visual Updates",
+                            "name": "visualUpdates",
+                            "type": "list",
+                            "item": {
+                                "type": "string",
+                                "placeHolder": "Building Code Name"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "resources": [
+        {
+            "id": "acero",
+            "name": "Steel"
+        },
+        {
+            "id": "bienes",
+            "name": "Goods"
+        },
+        {
+            "id": "biomasa",
+            "name": "Biomass"
+        },
+        {
+            "id": "carbon",
+            "name": "Coal"
+        },
+        {
+            "id": "ciencia",
+            "name": "Science"
+        },
+        {
+            "id": "comida",
+            "name": "Food"
+        },
+        {
+            "id": "energia",
+            "name": "Energy"
+        },
+        {
+            "id": "frutosAmarillos",
+            "name": "Biomass (yellow)"
+        },
+        {
+            "id": "frutosNaranjos",
+            "name": "Biomass (orange)"
+        },
+        {
+            "id": "frutosNegros",
+            "name": "Biomass (black)"
+        },
+        {
+            "id": "frutosRojos",
+            "name": "Biomass (red)"
+        },
+        {
+            "id": "hierro",
+            "name": "Iron"
+        },
+        {
+            "id": "madera",
+            "name": "Wood"
+        },
+        {
+            "id": "piedra",
+            "name": "Stone"
+        },
+        {
+            "id": "radioactividad",
+            "name": "Radioactivity"
+        },
+        {
+            "id": "trabajo0",
+            "name": "Work"
+        },
+        {
+            "id": "trabajo1",
+            "name": "Skill Work"
+        },
+        {
+            "id": "trabajo2",
+            "name": "High Skill Work"
+        }
+    ],
+    "localVariables": [
+        {
+            "id": "banca",
+            "name": "Banking"
+        },
+        {
+            "id": "comercio",
+            "name": "Commerce"
+        },
+        {
+            "id": "conectividad",
+            "name": "Connectivity"
+        },
+        {
+            "id": "cultura",
+            "name": "Culture"
+        },
+        {
+            "id": "educacion",
+            "name": "Education"
+        },
+        {
+            "id": "fe",
+            "name": "Faith"
+        },
+        {
+            "id": "pescaMaritima",
+            "name": "Fishing"
+        },
+        {
+            "id": "servicios",
+            "name": "Food Services"
+        },
+        {
+            "id": "saqueoComida",
+            "name": "Food To Loot"
+        },
+        {
+            "id": "areasVerdes",
+            "name": "Green Areas"
+        },
+        {
+            "id": "comodidad",
+            "name": "Happiness"
+        },
+        {
+            "id": "salud",
+            "name": "Healthcare"
+        },
+        {
+            "id": "produccionHierro",
+            "name": "Iron Industry"
+        },
+        {
+            "id": "saqueoHierro",
+            "name": "Iron To Loot"
+        },
+        {
+            "id": "ocio",
+            "name": "Leisure"
+        },
+        {
+            "id": "logistica",
+            "name": "Logistics"
+        },
+        {
+            "id": "lineaMetro",
+            "name": "Metroline"
+        },
+        {
+            "id": "vidaNocturna",
+            "name": "Night Life"
+        },
+        {
+            "id": "oficinas",
+            "name": "Offices"
+        },
+        {
+            "id": "contaminacion",
+            "name": "Pollution"
+        },
+        {
+            "id": "densidad",
+            "name": "Residents"
+        },
+        {
+            "id": "autoorganizacion",
+            "name": "Self-organization"
+        },
+        {
+            "id": "deporte",
+            "name": "Sports"
+        },
+        {
+            "id": "produccionMadera",
+            "name": "Timber Industry"
+        },
+        {
+            "id": "herramientas",
+            "name": "Tool Services"
+        },
+        {
+            "id": "turismo",
+            "name": "Tourism"
+        },
+        {
+            "id": "agua",
+            "name": "Water"
+        },
+        {
+            "id": "redAgua",
+            "name": "Water Network"
+        }
+    ],
+    "biomes": [
+        {
+            "id": 1,
+            "name": "Desert"
+        },
+        {
+            "id": 2,
+            "name": "Steppe"
+        },
+        {
+            "id": 3,
+            "name": "Grass"
+        },
+        {
+            "id": 4,
+            "name": "Forest"
+        },
+        {
+            "id": 7,
+            "name": "Pine Forest With Snow (sparse)"
+        },
+        {
+            "id": 5,
+            "name": "Pine Forest With Snow (dense)"
+        },
+        {
+            "id": 6,
+            "name": "Snow"
+        },
+        {
+            "id": 8,
+            "name": "Pine Forest Without Snow (sparse)"
+        },
+        {
+            "id": 9,
+            "name": "Pine Forest Without Snow (dense)"
+        },
+        {
+            "id": 20,
+            "name": "Floodplain"
+        },
+        {
+            "id": 21,
+            "name": "Stones (low)"
+        },
+        {
+            "id": 22,
+            "name": "Stones (medium)"
+        },
+        {
+            "id": 23,
+            "name": "Stones (high)"
+        },
+        {
+            "id": 31,
+            "name": "RainForest (low)"
+        },
+        {
+            "id": 32,
+            "name": "RainForest (medium)"
+        },
+        {
+            "id": 33,
+            "name": "RainForest (high)"
+        },
+        {
+            "id": 40,
+            "name": "Wastelands"
+        },
+        {
+            "id": 41,
+            "name": "Dead Forest"
+        },
+        {
+            "id": 42,
+            "name": "Abandoned Road"
+        },
+        {
+            "id": 43,
+            "name": "Low Abandoned City"
+        },
+        {
+            "id": 44,
+            "name": "Abandoned Fields"
+        },
+        {
+            "id": 45,
+            "name": "Low Abandoned Industries"
+        },
+        {
+            "id": 46,
+            "name": "High Abandoned City"
+        },
+        {
+            "id": 47,
+            "name": "Transition Abadoned Farm - Wasteland"
+        }
+    ],
+    "globalVariables": [
+        {
+            "id": "cultura",
+            "name": "Culture"
+        },
+        {
+            "id": "fe",
+            "name": "Faith"
+        },
+        {
+            "id": "verdes",
+            "name": "Green Areas"
+        },
+        {
+            "id": "bienestar",
+            "name": "Happiness"
+        },
+        {
+            "id": "vidaNocturna",
+            "name": "Night Life"
+        },
+        {
+            "id": "contaminacion",
+            "name": "Pollution"
+        },
+        {
+            "id": "poblacion",
+            "name": "Population"
+        },
+        {
+            "id": "autoorganizacion",
+            "name": "Self-Organization"
+        },
+        {
+            "id": "deporte",
+            "name": "Sport"
+        },
+        {
+            "id": "turismo",
+            "name": "Tourism"
+        }
+    ]
+}

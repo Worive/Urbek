@@ -1,0 +1,548 @@
+{
+    "construs": {
+        "value": "list",
+        "listType": ["construsObject"]
+    },
+    "construsObject": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "root", "required": true, "notRequiredIf": "category"
+            },
+            {
+                "name": "codeName", "required": true
+            }, {
+                "name": "name", "required": false
+            }, {
+                "name": "category", "required": true, "notRequiredIf": "root"
+            }, {
+                "name": "color", "required": false
+            }, {
+                "name": "text", "required": false
+            }, {
+                "name": "updates", "required": false
+            }, {
+                "name": "updatesFrom", "required": false
+            }, {
+                "name": "models", "required": false
+            }, {
+                "name": "abandonedModel", "required": false
+            },
+            {
+                "name": "waterModels", "required": false
+            },
+            {
+                "name": "facade", "required": false
+            }, {
+                "name": "roadModels", "required": false, "need": {
+                    "type": "OR", "value": ["isRoad", "isBridge"]
+                }
+            }, {
+                "name": "noCars", "required": false
+            }, {
+                "name": "facesSun", "required": false
+            }, {
+                "name": "line", "required": false
+            }, {
+                "name": "zone", "required": false
+            }, {
+                "name": "unblock", "required": false
+            }, {
+                "name": "preunblock", "required": false
+            }, {
+                "name": "drawRange", "required": false
+            }, {
+                "name": "drawRange2", "required": false
+            }, {
+                "name": "avoid1x1", "required": false
+            }, {
+                "name": "distanceToRoad", "required": false
+            }, {
+                "name": "localVariablesNeeded", "required": false
+            }, {
+                "name": "buildingsNeeded", "required": false
+            }, {
+                "name": "resourcesNeeded", "required": false
+            }, {
+                "name": "biomeAble", "required": false
+            }, {
+                "name": "biomeUnable", "required": false
+            }, {
+                "name": "coastal", "required": false
+            }, {
+                "name": "canWaterRiver", "required": false
+            }, {
+                "name": "canWaterSea", "required": false
+            }, {
+                "name": "coastalDepth", "required": false
+            }, {
+                "name": "canWaterArtificial", "required": false
+            }, {
+                "name": "maritime", "required": false
+            }, {
+                "name": "riverside", "required": false
+            }, {
+                "name": "SE_list", "required": false
+            }, {
+                "name": "SE_probability", "required": false
+            }, {
+                "name": "SE_delay", "required": false
+            }, {
+                "name": "mergesRoads", "required": false
+            }, {
+                "name": "connexionRange", "required": false
+            }, {
+                "name": "isRoad", "required": false, "need": {
+                    "type": "AND", "value": ["roadModels"]
+                }
+            }, {
+                "name": "isBridge", "required": false, "need": {
+                    "type": "AND", "value": ["roadModels"]
+                }
+            }, {
+                "name": "produces", "required": false
+            }, {
+                "name": "localVariables", "required": false
+            }, {
+                "name": "storage", "required": false
+            }, {
+                "name": "resourceExtraction", "required": false
+            }, {
+                "name": "cost", "required": false
+            }, {
+                "name": "buildable", "required": false
+            }, {
+                "name": "byBuilding", "required": false
+            }, {
+                "name": "notAvailable", "required": false
+            }, {
+                "name": "connectWith", "required": false
+            }, {
+                "name": "countsItself", "required": false
+            }, {
+                "name": "policyEffect", "required": false
+            }, {
+                "name": "showBuildable", "required": false
+            }, {
+                "name": "fastAbandon", "required": false
+            }, {
+                "name": "replaces", "required": false
+            }, {
+                "name": "visualUpdates", "required": false
+            }, {
+                "name": "policyLevel", "required": false
+            }]
+    },
+    "facade": {
+        "value": "boolean"
+    }, "noCars": {
+    "value": "boolean"
+}, "facesSun": {
+    "value": "boolean"
+}, "line": {
+    "value": "boolean"
+}, "zone": {
+    "value": "boolean"
+}, "avoid1x1": {
+    "value": "boolean"
+}, "coastal": {
+    "value": "boolean"
+}, "canWaterRiver": {
+    "value": "boolean"
+}, "canWaterSea": {
+    "value": "boolean"
+}, "canWaterArtificial": {
+    "value": "boolean"
+}, "riverside": {
+    "value": "boolean"
+}, "mergesRoads": {
+    "value": "boolean"
+}, "isRoad": {
+    "value": "boolean"
+}, "isBridge": {
+    "value": "boolean"
+}, "buildable": {
+    "value": "boolean"
+}, "byBuilding": {
+    "value": "boolean"
+}, "notAvailable": {
+    "value": "boolean"
+}, "countsItself": {
+    "value": "boolean"
+}, "fastAbandon": {
+    "value": "boolean"
+},
+    "updates": {
+        "value": "list",
+        "listType": ["string"]
+    },
+    "models": {
+        "value": "list", "listType": ["modelFormat"]
+    },
+
+    "modelFormat": {
+        "value": "string",
+        "regex": ".+,\\d,\\d(,(E|SI|A|AE|DE|DA)?)?"
+    },
+
+    "updatesFromFormat": {
+        "value": "string", "regex": ".*,(((after|before),.*)|first)"
+    },
+
+    "roadModels": {
+        "value": "list", "max": 4,
+        "listType": ["string", "stringList"]
+    },
+
+    "waterModels": {
+        "value": "list",
+        "listType": ["string"]
+    },
+
+    "stringList": {
+        "value": "string", "regex": "[^,]+(,[^,]+)*"
+    },
+
+    "unblock": {
+        "value": "list",
+        "listType": ["globalVariableFormat", "numberBuilding"]
+    },
+
+
+    "numberBuilding": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "nBuildings",
+                "required": true
+            },
+            {
+                "name": "q",
+                "required": true
+            }
+        ]
+    },
+
+
+    "globalVariableFormat": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "gloVar", "required": true
+            }, {
+                "name": "q", "required": true
+            }
+        ]
+    },
+
+    "q": {
+        "value": "number"
+    },
+
+
+    "gloVar": {
+        "value": "string",
+        "select": ["cultura", "fe", "verdes", "bienestar", "vidaNocturna", "contaminacion", "poblacion", "autoorganizacion", "deporte", "turismo"]
+    },
+
+
+    "nBuildings": {
+        "value": "string"
+    },
+
+
+    "preunblock": {
+        "value": "list", "listType": ["globalVariableFormat", "numberBuilding"]
+    },
+
+    "localVariablesNeededFormat": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "localVariable",
+                "required": true
+            },
+            {
+                "name": "radio",
+                "required": true
+            },
+            {
+                "name": "q",
+                "required": true
+            },
+            {
+                "name": "biggerThan",
+                "required": true
+            },
+            {
+                "name": "threshold",
+                "required": false
+            },
+            {
+                "name": "onlyUpdate",
+                "required": false
+            }]
+    },
+
+
+    "localVariable": {
+        "value": "string",
+        "select": ["banca", "comercio", "conectividad", "cultura", "educacion", "fe", "pescaMaritima", "servicios", "saqueoComida", "areasVerdes", "comodidad", "salud", "produccionHierro", "saqueoHierro", "ocio", "logistica", "lineaMetro", "vidaNocturna", "oficinas", "contaminacion", "densidad", "autoorganizacion", "deporte", "produccionMadera", "herramientas", "turismo", "agua", "redAgua"]
+    },
+
+    "locVar": {
+        "value": "string",
+        "select": ["banca", "comercio", "conectividad", "cultura", "educacion", "fe", "pescaMaritima", "servicios", "saqueoComida", "areasVerdes", "comodidad", "salud", "produccionHierro", "saqueoHierro", "ocio", "logistica", "lineaMetro", "vidaNocturna", "oficinas", "contaminacion", "densidad", "autoorganizacion", "deporte", "produccionMadera", "herramientas", "turismo", "agua", "redAgua"]
+    },
+
+    "radio": {
+        "value": "number"
+    },
+
+    "biggerThan": {
+        "value": "boolean"
+    },
+
+    "threshold": {
+        "value": "number"
+    },
+
+    "onlyUpdate": {
+        "value": "boolean"
+    },
+
+    "localVariablesNeeded": {
+        "value": "list",
+        "listType": ["localVariablesNeededFormat"]
+    },
+
+    "resourcesNeeded": {
+        "value": "list",
+        "listType": ["resourceFormat"]
+    },
+
+    "resourceFormat": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "rec",
+                "required": true
+            },
+            {
+                "name": "q",
+                "required": true
+            }
+        ]
+    },
+
+    "rec": {
+        "value": "string",
+        "select": ["acero", "bienes", "biomasa", "carbon", "ciencia", "comida", "energia", "frutosAmarillos", "frutosNaranjos", "frutosNegros", "frutosRojos", "hierro", "madera", "piedra", "radioactividad", "trabajo0", "trabajo1", "trabajo2"]
+    },
+
+    "resource": {
+        "value": "string",
+        "select": ["acero", "bienes", "biomasa", "carbon", "ciencia", "comida", "energia", "frutosAmarillos", "frutosNaranjos", "frutosNegros", "frutosRojos", "hierro", "madera", "piedra", "radioactividad", "trabajo0", "trabajo1", "trabajo2"]
+    },
+
+    "biomeAble": {
+        "value": "list",
+        "listType": ["biomeNumber"]
+    },
+
+    "biomeUnable": {
+        "value": "list",
+        "listType": ["biomeNumber"]
+    },
+
+    "biomeNumber": {
+        "value": "number",
+        "select": [1, 2, 3, 4, 5, 7, 6, 9, 8, 20, 21, 22, 23, 31, 32, 33, 40, 41, 42, 43, 44, 45, 46, 47]
+    },
+
+    "SE_list": {
+        "value": "list",
+        "listType": ["string"]
+    },
+
+    "produces": {
+        "value": "list",
+        "listType": ["resourceFormat"]
+    },
+
+    "localVariables": {
+        "value": "list",
+        "listType": ["localVariableFormat"]
+    },
+
+    "localVariableFormat": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "locVar",
+                "required": true
+            },
+            {
+                "name": "q",
+                "required": true
+            }
+        ]
+    },
+
+    "storage": {
+        "value": "list",
+        "listType": ["resourceFormat"]
+    },
+
+    "resourceExtraction": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "resource",
+                "required": true
+            },
+            {
+                "name": "q",
+                "required": true
+            },
+            {
+                "name": "distance",
+                "required": true
+            }
+        ]
+    },
+
+    "distance": {
+        "value": "number"
+    },
+
+    "cost": {
+        "value": "list",
+        "listType": ["resourceFormat"]
+    },
+
+    "replaces": {
+        "value": "list",
+        "listType": ["string"]
+    },
+
+    "visualUpdates": {
+        "value": "list",
+        "listType": ["string"]
+    },
+
+    "buildingsNeeded": {
+        "value": "list",
+        "listType": ["buildingNeededFormat"]
+    },
+
+    "buildingNeededFormat": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "building",
+                "required": true
+            },
+            {
+                "name": "radio",
+                "required": true
+            },
+            {
+                "name": "q",
+                "required": true
+            },
+            {
+                "name": "biggerThan",
+                "required": true
+            }
+        ]
+    },
+
+    "building": {
+        "value": "string"
+    },
+
+    "updatesFrom": {
+        "value": "list", "listType": ["updatesFromFormat"]
+    },
+
+
+    "drawRange": {
+        "value": "number"
+    },
+
+    "drawRange2": {
+        "value": "number"
+    },
+
+    "distanceToRoad": {
+        "value": "number"
+    },
+
+    "coastalDepth": {
+        "value": "number"
+    },
+
+    "maritime": {
+        "value": "number"
+    },
+
+
+    "SE_probability": {
+        "value": "float"
+    },
+
+    "SE_delay": {
+        "value": "float"
+    },
+
+
+    "connexionRange": {
+        "value": "number"
+    },
+
+    "policyLevel": {
+        "value": "number"
+    },
+
+
+    "root": {
+        "value": "string"
+    },
+
+    "codeName": {
+        "value": "string"
+    },
+
+    "name": {
+        "value": "string"
+    },
+
+    "category": {
+        "value": "string"
+    },
+
+    "color": {
+        "value": "string"
+    },
+
+    "text": {
+        "value": "string"
+    },
+
+    "abandonedModel": {
+        "value": "string"
+    },
+
+    "connectWith": {
+        "value": "string"
+    },
+
+    "policyEffect": {
+        "value": "string"
+    },
+
+    "showBuildable": {
+        "value": "string"
+    }
+}
