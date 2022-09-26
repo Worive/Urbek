@@ -7,6 +7,7 @@
     import FieldResourceExtraction from "./FieldResourceExtraction.svelte";
     import FieldGlobalVariable from "./FieldGlobalVariable.svelte";
     import FieldNumberBuilding from "./FieldNumberBuilding.svelte";
+    import FieldResourceNeeded from "./FieldResourceNeeded.svelte";
 
     export let building
     export let field
@@ -20,7 +21,8 @@
         localVariable: FieldLocalVariable,
         resourceExtraction: FieldResourceExtraction,
         globalVariable: FieldGlobalVariable,
-        numberBuilding: FieldNumberBuilding
+        numberBuilding: FieldNumberBuilding,
+        resourceNeeded: FieldResourceNeeded
     }
 
     if (components[item.type] === undefined) {

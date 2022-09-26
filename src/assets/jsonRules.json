@@ -318,7 +318,29 @@
 
     "resourcesNeeded": {
         "value": "list",
-        "listType": ["resourceFormat"]
+        "listType": ["resourceNeeded"]
+    },
+
+    "resourceNeeded": {
+        "isObject": true,
+        "contains": [
+            {
+                "name": "resource",
+                "required": true
+            },
+            {
+                "name": "radio",
+                "required": true
+            },
+            {
+                "name": "q",
+                "required": true
+            },
+            {
+                "name": "biggerThan",
+                "required": true
+            }
+        ]
     },
 
     "resourceFormat": {
